@@ -1,1 +1,6 @@
 <p>Bonjour depuis about: {{ name }} !</p>
+<ol>
+  @for (objectif of activiteService.objectifs; track objectif) {
+    <li>{{ objectif }}</li>
+  }
+</ol>

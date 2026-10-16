@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {Router } from '@angular/router'
+import { ActiviteService } from '../services/activite';
 
 @Component({
   imports: [],
@@ -8,4 +10,10 @@ import { Component } from '@angular/core';
 })
 export class About {
   name: string = "Kylian Mbappé";
+
+  constructor(
+  private monRouteur: Router,
+  public activiteService: ActiviteService
+  ) {
+  }
 }
