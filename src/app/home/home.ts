@@ -33,5 +33,9 @@ export class Home {
     this.nbItems = this.activiteService.objectifs.length;
   }
 
+  consulterActivite(index: number) {
+  this.monRouteur.navigate(['/consultAct', index]);
+  }
+
 
 }
