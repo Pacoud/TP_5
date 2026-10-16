@@ -15,7 +15,7 @@
     <input type="submit" class="btn" name="tkt" [value]="btnText" (click)="ajoutItem()">
   </div>
   <div class="col">
-    @for (objectif of objectifs; track objectif) {
+    @for (objectif of activiteService.objectifs; track objectif) {
       <p class="life-container" animate.enter="animation-ajout">{{ objectif }}</p>
     }
   </div>

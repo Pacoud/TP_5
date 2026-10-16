@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgClass } from '@angular/common';
 import { Router } from '@angular/router';
+import { ActiviteService } from '../services/activite';
 
 @Component({
   imports: [FormsModule],
@@ -14,21 +15,22 @@ export class Home {
   nbItems: number = 4;
   btnText: string = "Envoyer";
   objectifText: string = "";
-  objectifs: string[] = [];
 
   // ajouter un constructeur pour avoir l'ajout du routeur en paramètre:
-  constructor(private monRouteur: Router){
+  constructor(private monRouteur: Router,
+    public activiteService: ActiviteService
+  ){
     setTimeout(()=> {monRouteur.navigate(['about2'])}, 5000 ); 
 
   }
 
   ajoutItem() {
-    this.objectifs.push(this.objectifText);
-    this.nbItems = this.objectifs.length;
+    this.activiteService.objectifs.push(this.objectifText);
+    this.nbItems = this.activiteService.objectifs.length;
   }
 
   ngOnInit() {
-    this.nbItems = this.objectifs.length;
+    this.nbItems = this.activiteService.objectifs.length;
   }
 
 
