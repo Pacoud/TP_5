@@ -1,8 +1,26 @@
 <h2>Détail de l’activité</h2>
 
 @if (activiteService.objectifs[index] !== undefined) {
-  <p>Nom de l’activité : {{ activiteService.objectifs[index] }}</p>
-    <button type="button" (click)="supprimeElem(index)">
+  @if (edition) {
+    <label for="titreActivite">Nom de l’activité :</label>
+    <input
+      id="titreActivite"
+      type="text"
+      [(ngModel)]="titreSaisi"
+    >
+
+    <button type="button" (click)="sauvegarder()">
+      Sauvegarder
+    </button>
+  } @else {
+    <p>Nom de l’activité : {{ activiteService.objectifs[index] }}</p>
+
+    <button type="button" (click)="modifier()">
+      Modifier
+    </button>
+  }
+
+  <button type="button" (click)="supprimeElem(index)">
     Supprimer
   </button>
 } @else {

@@ -16,4 +16,14 @@ export class ActiviteService {
     this.objectifs.splice(index, 1);
   }
 }
+
+updateItem(index: number, titre: string) {
+  if (
+    Number.isInteger(index) &&
+    index >= 0 &&
+    index < this.objectifs.length
+  ) {
+    this.objectifs[index] = titre;
+  }
+}
 }
