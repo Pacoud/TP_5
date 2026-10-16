@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute,Router } from '@angular/router';
 import { ActiviteService } from '../services/activite';
 
 @Component({
@@ -12,11 +12,17 @@ export class ConsultAct {
   index : number = -1;
 
   constructor(private actRoute: ActivatedRoute,
-    public activiteService: ActiviteService
+    public activiteService: ActiviteService,
+    private monRouteur: Router
   ){
     this.index = Number(
       this.actRoute.snapshot.paramMap.get('idAct') ?? -1
     );
+  }
+
+  supprimeElem(index: number) {
+  this.activiteService.removeItem(index);
+  this.monRouteur.navigate(['/']);
   }
 
 

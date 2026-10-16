@@ -2,6 +2,9 @@
 
 @if (activiteService.objectifs[index] !== undefined) {
   <p>Nom de l’activité : {{ activiteService.objectifs[index] }}</p>
+    <button type="button" (click)="supprimeElem(index)">
+    Supprimer
+  </button>
 } @else {
   <p>Activité introuvable.</p>
 }

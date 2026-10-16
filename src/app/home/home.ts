@@ -20,8 +20,7 @@ export class Home {
   constructor(private monRouteur: Router,
     public activiteService: ActiviteService
   ){
-    setTimeout(()=> {monRouteur.navigate(['about2'])}, 5000 ); 
-
+    
   }
 
   ajoutItem() {
