@@ -1,5 +1,7 @@
-<p>consult-act works!</p>
-<p>valeur du paramètre transmis: {{ param }}</p>
-@if(param2 != null){
-    <p>valeur du paramètre 2 transmis: {{ param2 }}</p>
+<h2>Détail de l’activité</h2>
+
+@if (activiteService.objectifs[index] !== undefined) {
+  <p>Nom de l’activité : {{ activiteService.objectifs[index] }}</p>
+} @else {
+  <p>Activité introuvable.</p>
 }

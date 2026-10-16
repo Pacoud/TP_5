@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ActiviteService } from '../services/activite';
+
 @Component({
   imports: [],
   selector: 'app-consult-act',
@@ -7,14 +9,14 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './consult-act.html',
 })
 export class ConsultAct {
-  param = "valDefault"
-  param2 = null
+  index : number = -1;
 
-  constructor(private actRoute: ActivatedRoute){
-    this.param = actRoute.snapshot.params['idAct']
-    this.param2 = actRoute.snapshot.params['idSec']
-
-
+  constructor(private actRoute: ActivatedRoute,
+    public activiteService: ActiviteService
+  ){
+    this.index = Number(
+      this.actRoute.snapshot.paramMap.get('idAct') ?? -1
+    );
   }
 
 

@@ -16,7 +16,7 @@
   </div>
   <div class="col">
     @for (objectif of activiteService.objectifs; track objectif) {
-      <p class="life-container" animate.enter="animation-ajout">{{ objectif }}</p>
+      <p class="life-container" animate.enter="animation-ajout" (click)="consulterActivite($index)">{{ objectif }}</p>
     }
   </div>
  
